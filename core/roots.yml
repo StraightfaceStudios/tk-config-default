@@ -14,6 +14,6 @@
 
 primary:
     description: "A top-level root folder where all production data lives.  Project folders will be created beneath this location."
-    mac_path:
+    mac_path: 'smb://sfs-file/Working'
     linux_path:
-    windows_path:
+    windows_path: 'W:\'

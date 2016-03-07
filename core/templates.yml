@@ -143,9 +143,9 @@ paths:
     #
     # These don't require the standard formatting (with definition and root_name) because they
     # will be set within each template that uses the alias.
-    shot_root: sequences/{Sequence}/{Shot}/{Step}
-    asset_root: assets/{sg_asset_type}/{Asset}/{Step}
-    sequence_root: sequences/{Sequence}
+    shot_root: Shots/{Sequence}/{Shot}/
+    asset_root: Assets/{Asset}/
+    sequence_root: Shots/{Sequence}
 
 
     ##########################################################################################
@@ -192,21 +192,21 @@ paths:
 
     # The location of WIP files
     photoshop_shot_work:
-        definition: '@shot_root/work/photoshop/{name}.v{version}.psd'
+        definition: '@shot_root/Plates/work/{name}.v{version}.psd'
         root_name: 'primary'
     shot_work_area_photoshop:
-        definition: '@shot_root/work/photoshop'
+        definition: '@shot_root/Plates/work'
         root_name: 'primary'
     # The location of backups of WIP files
     photoshop_shot_snapshot:
-        definition: '@shot_root/work/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
+        definition: '@shot_root/Plates/work/snapshots/{name}.v{version}.{timestamp}.psd'
         root_name: 'primary'
     # The location of published files
     shot_publish_area_photoshop:
-        definition: '@shot_root/publish/photoshop'
+        definition: '@shot_root/Plates/publish'
         root_name: 'primary'
     photoshop_shot_publish:
-        definition: '@shot_root/publish/photoshop/{name}.v{version}.psd'
+        definition: '@shot_root/Plates/publish/{name}.v{version}.psd'
         root_name: 'primary'
 
 
@@ -216,73 +216,24 @@ paths:
 
     # define the location of a work area
     shot_work_area_maya:
-        definition: '@shot_root/work/maya'
+        definition: '@shot_root/Scenes/work/maya/'
         root_name: 'primary'
     # define the location of a publish area
     shot_publish_area_maya:
-        definition: '@shot_root/publish/maya'
+        definition: '@shot_root/Scenes/publish/maya/'
         root_name: 'primary'
     # The location of WIP files
     maya_shot_work:
-        definition: '@shot_root/work/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_root/Scenes/work/maya/{name}.v{version}.ma'
         root_name: 'primary'
     # The location of backups of WIP files
     maya_shot_snapshot:
-        definition: '@shot_root/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@shot_root/Scenes/work/maya/snapshots/{name}.v{version}.{timestamp}.ma'
         root_name: 'primary'
     # The location of published maya files
     maya_shot_publish:
-        definition: '@shot_root/publish/maya/{name}.v{version}.{maya_extension}'
+        definition: '@shot_root/Scenes/publish/maya/{name}.v{version}.ma'
         root_name: 'primary'
-
-
-    #
-    # Houdini
-    #
-
-    # define the location of a work area
-    shot_work_area_houdini:
-        definition: '@shot_root/work/houdini'
-        root_name: 'primary'
-    # define the location of a publish area
-    shot_publish_area_houdini:
-        definition: '@shot_root/publish/houdini'
-        root_name: 'primary'
-    # The location of WIP files
-    houdini_shot_work:
-        definition: '@shot_root/work/houdini/{name}.v{version}.hip'
-        root_name: 'primary'
-    # The location of backups of WIP files
-    houdini_shot_snapshot:
-        definition: '@shot_root/work/houdini/snapshots/{name}.v{version}.{timestamp}.hip'
-        root_name: 'primary'
-    # The location of published houdini files
-    houdini_shot_publish:
-        definition: '@shot_root/publish/houdini/{name}.v{version}.hip'
-        root_name: 'primary'
-    # Alembic caches
-    houdini_shot_work_alembic_cache:
-        definition: '@shot_root/work/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Shot}_{name}_v{version}.abc'
-        root_name: 'primary'
-
-    # Rendered images
-    houdini_shot_render:
-        definition: '@shot_root/work/images/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.exr'
-        root_name: 'primary'
-
-    # Additional mantra outputs
-    houdini_shot_ifd:
-        definition: '@shot_root/work/ifds/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.ifd'
-        root_name: 'primary'
-
-    houdini_shot_dcm:
-        definition: '@shot_root/work/dcms/{name}/{houdini.node}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.dcm'
-        root_name: 'primary'
-
-    houdini_shot_extra_plane:
-        definition: '@shot_root/work/images/{name}/{houdini.node}/{aov_name}/v{version}/{width}x{height}/{Shot}_{name}_v{version}.{SEQ}.exr'
-        root_name: 'primary'
-
 
     #
     # 3dsmax
@@ -290,51 +241,24 @@ paths:
 
     # define the location of a work area
     shot_work_area_max:
-        definition: '@shot_root/work/3dsmax'
+        definition: '@shot_root/Scenes/work'
         root_name: 'primary'
     # define the location of a publish area
     shot_publish_area_max:
-        definition: '@shot_root/publish/3dsmax'
+        definition: '@shot_root/Scenes/publish'
         root_name: 'primary'
     # The location of WIP files
     max_shot_work:
-        definition: '@shot_root/work/3dsmax/{name}.v{version}.max'
+        definition: '@shot_root/Scenes/work/{Sequence}_{Shot}_{name}.v{version}.max'
         root_name: 'primary'
     # The location of backups of WIP files
     max_shot_snapshot:
-        definition: '@shot_root/work/3dsmax/snapshots/{name}.v{version}.{timestamp}.max'
+        definition: '@shot_root/Scenes/work/snapshots/{Sequence}_{Shot}_{name}.v{version}.{timestamp}.max'
         root_name: 'primary'
     # The location of published maya files
     max_shot_publish:
-        definition: '@shot_root/publish/3dsmax/{name}.v{version}.max'
+        definition: '@shot_root/Scenes/publish/{Sequence}_{Shot}_{name}.v{version}.max'
         root_name: 'primary'
-
-
-    #
-    # Motionbuilder
-    #
-
-    # define the location of a work area
-    shot_work_area_mobu:
-        definition: '@shot_root/work/mobu'
-        root_name: 'primary'
-    # define the location of a publish area
-    shot_publish_area_mobu:
-        definition: '@shot_root/publish/mobu'
-        root_name: 'primary'
-    # The location of WIP files
-    mobu_shot_work:
-        definition: '@shot_root/work/mobu/{name}.v{version}.fbx'
-        root_name: 'primary'
-    # The location of backups of WIP files
-    mobu_shot_snapshot:
-        definition: '@shot_root/work/mobu/snapshots/{name}.v{version}.{timestamp}.fbx'
-        root_name: 'primary'
-    # The location of published maya files
-    mobu_shot_publish:
-        definition: '@shot_root/publish/mobu/{name}.v{version}.fbx'
-        root_name: 'primary'
-
 
     #
     # Nuke
@@ -342,36 +266,36 @@ paths:
 
     # define the location of a work area
     shot_work_area_nuke:
-        definition: '@shot_root/work/nuke'
+        definition: '@shot_root/Comps/work'
         root_name: 'primary'
     # define the location of a publish area
     shot_publish_area_nuke:
-        definition: '@shot_root/publish/nuke'
+        definition: '@shot_root/Comps/publish'
         root_name: 'primary'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/work/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/Comps/work/{sequence}_{shot}_{name}.v{version}.nk'
         root_name: 'primary'
     # The location of backups of WIP files
     nuke_shot_snapshot:
-        definition: '@shot_root/work/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@shot_root/Comps/work/snapshots/{name}.v{version}.{timestamp}.nk'
         root_name: 'primary'
     # The location of published nuke script files
     nuke_shot_publish:
-        definition: '@shot_root/publish/nuke/{name}.v{version}.nk'
+        definition: '@shot_root/Comps/publish/{name}.v{version}.nk'
         root_name: 'primary'
     # write node outputs
     nuke_shot_render_mono_dpx:
-        definition: '@shot_root/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/Renders/comp/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
         root_name: 'primary'
     nuke_shot_render_pub_mono_dpx:
-        definition: '@shot_root/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
+        definition: '@shot_root/Renders/comp/publish/comp/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_v{version}.{SEQ}.dpx'
         root_name: 'primary'
     nuke_shot_render_stereo:
-        definition: '@shot_root/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/Renders/comp/work/images/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     nuke_shot_render_pub_stereo:
-        definition: '@shot_root/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
+        definition: '@shot_root/Renders/comp/publish/elements/{name}/v{version}/{width}x{height}/{Shot}_{name}_{nuke.output}_{eye}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     # review output
     shot_quicktime_quick:
@@ -387,37 +311,16 @@ paths:
 
     # export of shot asset data from hiero
     hiero_plate_path:
-        definition: 'sequences/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/plates/{project}_{Shot}.mov'
+        definition: '@shot_root/plates/{project}_{Shot}.mov'
         root_name: 'primary'
     hiero_render_path:
-        definition: 'sequences/{Sequence}/{Shot}/editorial/{YYYY}_{MM}_{DD}/renders/{project}_{Shot}.{SEQ}.dpx'
+        definition: '@shot_root/plates/{Shot}/{Shot}.{SEQ}.dpx'
         root_name: 'primary'
 
 
     #
     # Softimage
     #
-
-    # define the location of a work area
-    shot_work_area_softimage:
-        definition: '@shot_root/work/softimage'
-        root_name: 'primary'
-    # define the location of a publish area
-    shot_publish_area_softimage:
-        definition: '@shot_root/publish/softimage'
-        root_name: 'primary'
-    # The location of WIP files
-    softimage_shot_work:
-        definition: '@shot_root/work/softimage/{name}.v{version}.scn'
-        root_name: 'primary'
-    # The location of backups of WIP files
-    softimage_shot_snapshot:
-        definition: '@shot_root/work/softimage/snapshots/{name}.v{version}.{timestamp}.scn'
-        root_name: 'primary'
-    # The location of published softimage files
-    softimage_shot_publish:
-        definition: '@shot_root/publish/softimage/{name}.v{version}.scn'
-        root_name: 'primary'
 
 
     ##########################################################################################
@@ -429,7 +332,7 @@ paths:
     #
 
     asset_alembic_cache:
-        definition: '@asset_root/publish/caches/{name}.v{version}.abc'
+        definition: '@asset_root/model/publish/caches/{name}.v{version}.abc'
         root_name: 'primary'
 
 
@@ -439,21 +342,21 @@ paths:
 
     # The location of WIP files
     photoshop_asset_work:
-        definition: '@asset_root/work/photoshop/{name}.v{version}.psd'
+        definition: '@asset_root/Textures/work/{name}.v{version}.psd'
         root_name: 'primary'
     asset_work_area_photoshop:
-        definition: '@asset_root/work/photoshop'
+        definition: '@asset_root/Textures/work/'
         root_name: 'primary'
     # The location of backups of WIP files
     photoshop_asset_snapshot:
-        definition: '@asset_root/work/photoshop/snapshots/{name}.v{version}.{timestamp}.psd'
+        definition: '@asset_root/Textures/work/snapshots/{name}.v{version}.{timestamp}.psd'
         root_name: 'primary'
     # The location of published files
     asset_publish_area_photoshop:
-        definition: '@asset_root/publish/photoshop'
+        definition: '@asset_root/Textures/publish'
         root_name: 'primary'
     photoshop_asset_publish:
-        definition: '@asset_root/publish/photoshop/{name}.v{version}.psd'
+        definition: '@asset_root/Textures/publish/{name}.v{version}.psd'
         root_name: 'primary'
 
 
@@ -470,23 +373,23 @@ paths:
 
     # define the location of a work area
     asset_work_area_maya:
-        definition: '@asset_root/work/maya'
+        definition: '@asset_root/Model/work'
         root_name: 'primary'
     # define the location of a publish area
     asset_publish_area_maya:
-        definition: '@asset_root/publish/maya'
+        definition: '@asset_root/Model/publish'
         root_name: 'primary'
     # The location of WIP files
     maya_asset_work:
-        definition: '@asset_root/work/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_root/Model/work/{name}.v{version}.ma'
         root_name: 'primary'
     # The location of backups of WIP files
     maya_asset_snapshot:
-        definition: '@asset_root/work/maya/snapshots/{name}.v{version}.{timestamp}.{maya_extension}'
+        definition: '@asset_root/Model/work/snapshots/{name}.v{version}.{timestamp}.ma'
         root_name: 'primary'
     # The location of published maya files
     maya_asset_publish:
-        definition: '@asset_root/publish/maya/{name}.v{version}.{maya_extension}'
+        definition: '@asset_root/Model/publish/{name}.v{version}.ma'
         root_name: 'primary'
 
 
@@ -516,12 +419,12 @@ paths:
         root_name: 'primary'
     # Alembic caches
     houdini_asset_work_alembic_cache:
-        definition: '@asset_root/work/houdini/cache/alembic/{name}/{houdini.node}/v{version}/{Asset}_{name}_v{version}.abc'
+        definition: '@asset_root/work/houdini/cache/alembic/{name}/v{version}/{Asset}_{name}_v{version}_{houdini.node}.abc'
         root_name: 'primary'
 
     # Rendered images
     houdini_asset_render:
-        definition: '@asset_root/work/images/{name}/{houdini.node}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/work/images/{name}/v{version}/{width}x{height}/{Asset}_{name}_v{version}.{SEQ}.exr'
         root_name: 'primary'
 
     # Additional mantra outputs
@@ -544,11 +447,11 @@ paths:
 
     # define the location of a work area
     asset_work_area_max:
-        definition: '@asset_root/work/3dsmax'
+        definition: '@asset_root/Model/work/'
         root_name: 'primary'
     # define the location of a publish area
     asset_publish_area_max:
-        definition: '@asset_root/publish/3dsmax'
+        definition: '@asset_root/Model/publish/'
         root_name: 'primary'
     # The location of WIP files
     max_asset_work:
@@ -556,11 +459,11 @@ paths:
         root_name: 'primary'
     # The location of backups of WIP files
     max_asset_snapshot:
-        definition: '@asset_root/work/3dsmax/snapshots/{name}.v{version}.{timestamp}.max'
+        definition: '@asset_root/Model/work/snapshots/{name}.v{version}.{timestamp}.max'
         root_name: 'primary'
     # The location of published maya files
     max_asset_publish:
-        definition: '@asset_root/publish/3dsmax/{name}.v{version}.max'
+        definition: '@asset_root/Model/publish/{name}.v{version}.max'
         root_name: 'primary'
 
 
@@ -568,46 +471,24 @@ paths:
     # Motionbuilder
     #
 
-    # define the location of a work area
-    asset_work_area_mobu:
-        definition: '@asset_root/work/mobu'
-        root_name: 'primary'
-    # define the location of a publish area
-    asset_publish_area_mobu:
-        definition: '@asset_root/publish/mobu'
-        root_name: 'primary'
-    # The location of WIP files
-    mobu_asset_work:
-        definition: '@asset_root/work/mobu/{name}.v{version}.fbx'
-        root_name: 'primary'
-    # The location of backups of WIP files
-    mobu_asset_snapshot:
-        definition: '@asset_root/work/mobu/snapshots/{name}.v{version}.{timestamp}.fbx'
-        root_name: 'primary'
-    # The location of published Motionbuilder files
-    mobu_asset_publish:
-        definition: '@asset_root/publish/mobu/{name}.v{version}.fbx'
-        root_name: 'primary'
-
-
     #
     # Nuke
     #
 
     # define the location of a work area
     asset_work_area_nuke:
-        definition: '@asset_root/work/nuke'
+        definition: '@asset_root/Comps/work'
         root_name: 'primary'
     # define the location of a publish area
     asset_publish_area_nuke:
-        definition: '@asset_root/publish'
+        definition: '@asset_root/Comps/publish'
         root_name: 'primary'
     # outputs from the Shotgun Write Node for assets
     nuke_asset_render:
-        definition: '@asset_root/work/images/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/Renders/work/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     nuke_asset_render_pub:
-        definition: '@asset_root/publish/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
+        definition: '@asset_root/Renders/publish/elements/{name}/v{version}/{width}x{height}/{Asset}_{name}_{nuke.output}_v{version}.{SEQ}.exr'
         root_name: 'primary'
     # review output
     nuke_asset_render_movie:
@@ -618,43 +499,21 @@ paths:
         root_name: 'primary'
     # The location of WIP script files
     nuke_asset_work:
-        definition: '@asset_root/work/nuke/{name}.v{version}.nk'
+        definition: '@asset_root/Comps/work/{name}.v{version}.nk'
         root_name: 'primary'
     # The location of backups of WIP files
     nuke_asset_snapshot:
-        definition: '@asset_root/work/nuke/snapshots/{name}.v{version}.{timestamp}.nk'
+        definition: '@asset_root/Comps/work/snapshots/{name}.v{version}.{timestamp}.nk'
         root_name: 'primary'
     # The location of published nuke script files
     nuke_asset_publish:
-        definition: '@asset_root/publish/nuke/{name}.v{version}.nk'
+        definition: '@asset_root/Comps/publish/{name}.v{version}.nk'
         root_name: 'primary'
 
 
     #
     # Softimage
     #
-
-    # define the location of a work area
-    asset_work_area_softimage:
-        definition: '@asset_root/work/softimage'
-        root_name: 'primary'
-    # define the location of a publish area
-    asset_publish_area_softimage:
-        definition: '@asset_root/publish/softimage'
-        root_name: 'primary'
-    # The location of WIP files
-    softimage_asset_work:
-        definition: '@asset_root/work/softimage/{name}.v{version}.scn'
-        root_name: 'primary'
-    # The location of backups of WIP files
-    softimage_asset_snapshot:
-        definition: '@asset_root/work/softimage/snapshots/{name}.v{version}.{timestamp}.scn'
-        root_name: 'primary'
-    # The location of published softimage files
-    softimage_asset_publish:
-        definition: '@asset_root/publish/softimage/{name}.v{version}.scn'
-        root_name: 'primary'
-
 
 #
 # The strings section is similar to the paths section - but rather than defining paths
