@@ -274,7 +274,7 @@ paths:
         root_name: 'primary'
     # The location of WIP script files
     nuke_shot_work:
-        definition: '@shot_root/Comps/work/{sequence}_{shot}_{name}.v{version}.nk'
+        definition: '@shot_root/Comps/work/{Sequence}_{Shot}_{name}.v{version}.nk'
         root_name: 'primary'
     # The location of backups of WIP files
     nuke_shot_snapshot:
