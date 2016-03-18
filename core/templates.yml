@@ -455,15 +455,15 @@ paths:
         root_name: 'primary'
     # The location of WIP files
     max_asset_work:
-        definition: '@asset_root/Model/work/{name}.v{version}.max'
+        definition: '@asset_root/Model/work/{project}_{Asset}_{name}.v{version}.max'
         root_name: 'primary'
     # The location of backups of WIP files
     max_asset_snapshot:
-        definition: '@asset_root/Model/work/snapshots/{name}.v{version}.{timestamp}.max'
+        definition: '@asset_root/Model/work/snapshots/{project}_{Asset}_{name}.v{version}.{timestamp}.max'
         root_name: 'primary'
     # The location of published maya files
     max_asset_publish:
-        definition: '@asset_root/Model/publish/{name}.v{version}.max'
+        definition: '@asset_root/Model/publish/{project}_{Asset}_{name}.v{version}.max'
         root_name: 'primary'
 
 
