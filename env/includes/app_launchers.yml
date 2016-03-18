@@ -180,9 +180,9 @@ launch_nuke:
     name: tk-multi-launchapp
   mac_args: ''
   mac_path: '@nuke_mac'
-  menu_name: Launch Nuke
+  menu_name: Launch NukeX
   versions: []
-  windows_args: ''
+  windows_args: --nukex
   windows_path: '@nuke_windows'
 #
 # -------------------------------------------------
